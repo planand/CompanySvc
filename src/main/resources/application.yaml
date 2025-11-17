@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    url:
+    driver:
+    username:
+    password:
+server:
+  port: 8080
+  connectionTimeout: 5000
