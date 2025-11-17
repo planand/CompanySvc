@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: dev
   application:
     name: demo
   datasource:
@@ -10,6 +8,6 @@ spring:
     password:
 server:
   port: 8080
-  connectionTimeout: 5000
-  activeFlag1: 1
+  connectionTimeout: 1000
+  activeFlag1: 2
 

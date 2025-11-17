@@ -1,9 +1,8 @@
 package com.example.companydemo.controller;
 
-import com.example.companydemo.configProperties.ServerProperties;
+import com.example.companydemo.configProperties.server.SProps;
 import com.example.companydemo.repository.model.Department;
 import com.example.companydemo.service.CompanySvc;
-import org.apache.catalina.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +14,7 @@ public class CompanyController {
     private CompanySvc companySvc;
 
     @Autowired
-    private ServerProperties serverProperties;
+    private SProps serverProperties;
 
     @GetMapping("/employee/dept/{deptId}")
     public Department findEmployeeByDeptId(String deptId) {
@@ -23,8 +22,13 @@ public class CompanyController {
     }
 
     @GetMapping("/serverProperties")
-    public ServerProperties getServerProperties(){
+    public SProps getServerProperties(){
         return serverProperties;
+    }
+
+    @GetMapping("/mobileProvider")
+    public void getSim(String provider){
+        companySvc.getProvider(provider);
     }
 
 }
