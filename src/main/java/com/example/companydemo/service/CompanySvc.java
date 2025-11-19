@@ -6,6 +6,7 @@ import com.example.companydemo.service.mobile.Sim;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
 
@@ -23,6 +24,9 @@ public class CompanySvc {
     @Qualifier("MP2")
     private Sim sim2;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     public Department findEmployeesByDept(String deptId){
        Optional<Department> department = departmentRepo.getDepartmentById(deptId);
        return department.orElse(null);
@@ -32,5 +36,10 @@ public class CompanySvc {
         Sim sim = provider.equals("mp1") ? sim1 : sim2;
         sim.calling();
         sim.data();
+    }
+
+    public String getValues() {
+        String uri = "";
+        return restTemplate.getForObject(uri, String.class);
     }
 }

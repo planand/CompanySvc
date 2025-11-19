@@ -17,7 +17,7 @@ import java.util.List;
 @EqualsAndHashCode
 @Accessors(chain = true)
 @Table(name = "Department")
-public class Department {
+public class Department extends AbstractAudit{
 
     @Id
     @Column(name = "deptId")

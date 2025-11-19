@@ -14,7 +14,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode
 @Accessors(chain = true)
 @Table(name = "Employee")
-public class Employee {
+public class Employee extends AbstractAudit {
     @ManyToOne
     @JoinColumn(name = "deptId") // Specifies the foreign key column
     private Department department;
@@ -24,4 +24,7 @@ public class Employee {
 
     @Column
     private String EmpName;
+
+    @Column
+    private int age;
 }
